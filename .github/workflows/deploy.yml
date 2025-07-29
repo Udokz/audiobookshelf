@@ -38,9 +38,15 @@ jobs:
         chmod 600 private_key.pem
 
     - name: Deploy on EC2
+      env:
+        ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }}
+        ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}
       run: |
         ssh -o StrictHostKeyChecking=no -i private_key.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
-          docker pull ${{ secrets.ECR_REGISTRY }}/${{ secrets.ECR_REPOSITORY }}:latest
-          docker stop audiobookshelf || true && docker rm audiobookshelf || true
-          docker run -d --name audiobookshelf -p 80:80 ${{ secrets.ECR_REGISTRY }}/${{ secrets.ECR_REPOSITORY }}:latest
+          export ECR_REGISTRY=${ECR_REGISTRY}
+          export ECR_REPOSITORY=${ECR_REPOSITORY}
+          docker pull $ECR_REGISTRY/$ECR_REPOSITORY:latest
+          docker stop audiobookshelf || true
+          docker rm audiobookshelf || true
+          docker run -d --name audiobookshelf -p 80:80 $ECR_REGISTRY/$ECR_REPOSITORY:latest
         EOF
