@@ -20,7 +20,7 @@ Audiobookshelf is a self-hosted audiobook and podcast server.
 
 - Fully **open-source**, including the [android & iOS app](https://github.com/advplyr/audiobookshelf-app) _(in beta)_
 - Stream all audio formats on the fly
-- Search and add podcasts to download episodes w/ auto-download
+- Search and Add podcasts to download episodes w/ auto-download
 - Multi-user support w/ custom permissions
 - Keeps progress per user and syncs across devices
 - Auto-detects library updates, no need to re-scan
@@ -34,7 +34,7 @@ Audiobookshelf is a self-hosted audiobook and podcast server.
 - Embed metadata and cover image into your audio files
 - Basic ebook support and ereader
   - Epub, pdf, cbr, cbz
-  - Send Ebook to device (i.e. Kindle)
+  - Send ebook to device (i.e. Kindle)
 - Open RSS feeds for podcasts and audiobooks
 
 Is there a feature you are looking for? [Suggest it](https://github.com/advplyr/audiobookshelf/issues/new/choose)
