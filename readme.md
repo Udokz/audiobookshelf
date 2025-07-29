@@ -34,7 +34,7 @@ Audiobookshelf is a self-hosted audiobook and podcast server.
 - Embed metadata and cover image into your audio files
 - Basic ebook support and ereader
   - Epub, pdf, cbr, cbz
-  - Send ebook to device (i.e. Kindle)
+  - Send Ebook to device (i.e. Kindle)
 - Open RSS feeds for podcasts and audiobooks
 
 Is there a feature you are looking for? [Suggest it](https://github.com/advplyr/audiobookshelf/issues/new/choose)
