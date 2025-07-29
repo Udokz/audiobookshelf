@@ -2,7 +2,7 @@ name: Audiobook Shelf Deploy to EC2
 
 on:
   push:
-    branches: [ Master ]
+    branches: [ master ]
 
 jobs:
   deploy:
