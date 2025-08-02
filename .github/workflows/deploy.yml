@@ -45,8 +45,10 @@ jobs:
         ssh -o StrictHostKeyChecking=no -i private_key.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
           export ECR_REGISTRY=${ECR_REGISTRY}
           export ECR_REPOSITORY=${ECR_REPOSITORY}
-          docker pull $ECR_REGISTRY/$ECR_REPOSITORY:latest
-          docker stop audiobookshelf || true
-          docker rm audiobookshelf || true
-          docker run -d --name audiobookshelf -p 80:80 $ECR_REGISTRY/$ECR_REPOSITORY:latest
+          aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | sudo docker login --username AWS --password-stdin $ECR_REGISTRY
+          echo "Pulling: $ECR_REGISTRY/$ECR_REPOSITORY:latest"
+        sudo docker pull $ECR_REGISTRY/$ECR_REPOSITORY:latest
+        sudo docker stop audiobookshelf || true
+        sudo docker rm audiobookshelf || true
+        sudo docker run -d --name audiobookshelf -p 80:80 $ECR_REGISTRY/$ECR_REPOSITORY:latest
         EOF
