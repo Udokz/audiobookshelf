@@ -50,5 +50,5 @@ jobs:
         sudo docker pull 688567268604.dkr.ecr.eu-north-1.amazonaws.com/audiobookshelf:latest
         sudo docker stop audiobookshelf || true
         sudo docker rm audiobookshelf || true
-        sudo docker run -d --name audiobookshelf -p 80:13378 688567268604.dkr.ecr.eu-north-1.amazonaws.com/audiobookshelf:latest
+        sudo docker run -d --name audiobookshelf -p 13378:80 688567268604.dkr.ecr.eu-north-1.amazonaws.com/audiobookshelf:latest
         EOF
